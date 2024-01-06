@@ -1,20 +1,23 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using TiseShortUrl.Models;
 
 namespace TiseShortUrl.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly TiseShortUrl.Data.TiseShortUrlContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(TiseShortUrl.Data.TiseShortUrlContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public void OnGet()
-        {
+        public IList<ShortUrl> ShortUrl { get;set; } = default!;
 
+        public async Task OnGetAsync()
+        {
+            ShortUrl = await _context.ShortUrl.ToListAsync();
         }
     }
 }

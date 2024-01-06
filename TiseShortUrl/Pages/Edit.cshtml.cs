@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using TiseShortUrl.Data;
 using TiseShortUrl.Models;
 
-namespace TiseShortUrl.Pages.UrlShortener
+namespace TiseShortUrl.Pages
 {
     public class EditModel : PageModel
     {
