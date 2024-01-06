@@ -1,0 +1,45 @@
+﻿@page "{id:int?}"
+@model TiseShortUrl.Pages.UrlShortener.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ShortUrl</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ShortUrl.Id" />
+            <div class="form-group">
+                <label asp-for="ShortUrl.Name" class="control-label"></label>
+                <input asp-for="ShortUrl.Name" class="form-control" />
+                <span asp-validation-for="ShortUrl.Name" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="ShortUrl.OriginalUrl" class="control-label"></label>
+                <input asp-for="ShortUrl.OriginalUrl" class="form-control" />
+                <span asp-validation-for="ShortUrl.OriginalUrl" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="ShortUrl.Url" class="control-label"></label>
+                <input asp-for="ShortUrl.Url" class="form-control" />
+                <span asp-validation-for="ShortUrl.Url" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

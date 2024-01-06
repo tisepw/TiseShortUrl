@@ -1,0 +1,14 @@
+﻿@page "{shortUrl?}"
+@model TiseShortUrl.Pages.s.IndexModel
+
+@{
+	ViewData["Title"] = "Redirect";
+}
+
+<div style="text-align: center;">You will be redirected to @Model.OriginalUrl soon!</div>
+<br>
+<div style="width: fit-content; margin: auto;">
+    <a href=@Model.OriginalUrl>
+    <button>Manual redirection</button>
+    </a>
+</div>
