@@ -23,7 +23,7 @@ namespace TiseShortUrl.Pages.s
 				return NotFound();
 			}
 
-            var selected = _context.ShortUrl.ToListAsync().Result.Find(x => x.Url == shortUrl);
+            var selected = _context.ShortUrl.ToListAsync().Result.Find(x => x.ShortenedUrl == shortUrl);
 
             if (selected == null)
             {

@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Short URL";
-    string protocol = "https://";
+    string protocol = "https://"; // Bug report in trello
 }
 
 <h1>URL Shortener</h1>
@@ -24,7 +24,7 @@
                 @Html.DisplayNameFor(model => model.ShortUrl[0].OriginalUrl)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShortUrl[0].Url)
+                @Html.DisplayNameFor(model => model.ShortUrl[0].ShortenedUrl)
             </th>
             <th></th>
         </tr>
@@ -33,16 +33,16 @@
 @foreach (var item in Model.ShortUrl) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.ShortName)
             </td>
             <td>
-                    <a href="@Html.DisplayFor(modelItem => item.OriginalUrl)">@Html.DisplayFor(modelItem => item.OriginalUrl)</a>
+                    <a href="@Html.DisplayFor(modelItem => item.OriginalUrl)">@Html.DisplayFor(modelItem => item.ShortOriginalUrl)</a>
             </td>
             <td>
                     @{
                         string localLink = protocol + $"{Request.Host}/s/";
                     }
-                    <a href="@localLink@Html.DisplayFor(modelItem => item.Url)">@localLink@Html.DisplayFor(modelItem => item.Url)</a>
+                    <a href="@localLink@Html.DisplayFor(modelItem => item.ShortenedUrl)">@localLink@Html.DisplayFor(modelItem => item.ShortShortenedUrl)</a>
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

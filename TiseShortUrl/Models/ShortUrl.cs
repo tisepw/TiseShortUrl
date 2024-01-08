@@ -13,8 +13,7 @@ public class ShortUrl()
     public string OriginalUrl { get; set; } = string.Empty;
 
     [Display(Name = "Short URL")]
-    public string Url { get; set; } = string.Empty;
-};
+    public string ShortenedUrl { get; set; } = string.Empty;
 
     public string ShortName
     {
@@ -31,6 +30,15 @@ public class ShortUrl()
             return OriginalUrl.CorrectStringLength(40);
         }
     }
+
+    public string ShortShortenedUrl
+    {
+        get
+        {
+            return ShortenedUrl.CorrectStringLength(60);
+        }
+    }
+}
 
 // OwnerId
 // CreatedAt
